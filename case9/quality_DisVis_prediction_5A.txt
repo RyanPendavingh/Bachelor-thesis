@@ -1,0 +1,9 @@
+# correctly predicted act res prot1: 15
+# correctly predicted act res prot2: 1
+# correctly predicted pas res prot1: 21
+# correctly predicted pas res prot2: 2
+# act res prot1: 37
+# act res prot2: 30
+# pas res prot1: 75
+# pas res prot2: 25
+# hypothetical interface residues: 115
