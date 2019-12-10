@@ -1,0 +1,58 @@
+This repository holds the scripts and all the files which were needed for my bachelor thesis on the integration of XLMS data into HADDOCK. The XLMS data can be used as a distance restraint and to predict interface residues using the DisVis web server. These residues can then be used as active residues for AIRs, a feature unique to HADDCOCK.
+Four docking runs per case were performed: a blind docking run using the ab initio mode of HADDOCK, a docking run with distance restraints, a docking run with AIRs and a docking run using both. For some cases, the starting structure of one or both of the proteins had to be made with homology modelling.
+The docking results were assessed according to the CAPRI criteria. The quality of the DisVis prediction was assessed on the true positive rates.
+See [link to thesis] for more information?
+
+
+Structure of the repository
+The scripts can be found in the main folder.
+Each case has a folder which includes the starting structures for docking, protein sequences, bound structure (=reference structure), the restraint files and the files containing the accessible, active, passive and predicted residues.
+The homology modelling folder contains the template structures and the (adapted) structural alignments used for homology modelling.
+
+
+Workflow
+
+Homology modelling
+- align with modeller
+  python2.7 alignment_modeller.py <main directory> <case number> <protein number> <refprot chain>
+- if needed, correct alignment (i.e. insert in helix or sheet) (refer to tutorials)
+- make models
+  mod9.19 ‘make_model_modeller.py’ <main directory> <case number> <protein number> <refprot chain>
+- select best model based on DOPE score (lowest)
+- realign and remove weird loops not at interface
+- redo ‘make models’ and ‘select best model’
+- loop model case 6
+   mod9.19 make_loopmodel_modeller.py <initial model> <protein name> <first aa of loop1> <last aa of loop1> <first aa of loop2> <last aa of loop2> <start number> <end number>
+- rename chain of best model (link to pbdtools)
+  python2.7 pdb_chain.py -A ‘caseX_protY_struc.pdb’ > ‘caseX_protY_struc.ent’
+
+
+Docking
+- if needed, remove excessive chains (link to pdbtools)
+  python2.7 pdb_delchain.py -<chain id, chain id, etc> <pdb file> > <new pdb file>
+- run naccess (link to naccess)
+  naccess <pdb file>
+- get accessible residues 
+  python2.7 get_all_accessible.py <main directory> <case number>
+- run DisVis
+  fixed = prot1	 scanning = prot2
+
+- get active residues from DisVis output		
+  python2.7 get_ active_residues.py <main directory> <case number>  
+- run three docking runs:
+  with active residues, with XL restraints and both	
+  use centre of mass restraints if XL restraints are used
+- download docking results
+
+- assess models part 1
+  python2.7 assess_models_1.py <case> <docking run> <refcomp chain 1> <refcomp chain 2>
+- assess models part 2
+  python2.7 assess_models_2.py <case> <docking run> <refcomp chain 1> <refcomp chain 2> <shortest chain>
+- assess models part 3
+  python2.7 assess_models_3.py <case> <docking run> <refcomp chain 1> <refcomp chain 2>
+- get haddock scores and clustered ranks
+  python2.7 get_score.py <case> <docking run>
+  python2.7 get_clustered_rank.py <case> <docking run>
+- manually make passive residues file and predicted residues file
+- assess quality DisVis
+  python2.7 get_quality_DisVis.py <case> <docking run>
