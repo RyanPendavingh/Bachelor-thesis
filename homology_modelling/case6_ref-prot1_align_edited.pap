@@ -1,0 +1,65 @@
+ _aln.pos            60
+case6_refprot1  ---PEHSC 
+case6_prot1     YPVVDHEF 
+ _helix
+ _beta
+
+ _aln.pos             70        80        90       100       110       120
+case6_refprot1  DVLIIGSGAAGLSLALRLAD-QHQVIVLSKGPVTEGSTFYAQGGIAAVFD--ETDSIDSHVE 
+case6_prot1     DAVVVGAGGAGLRAAFGLSEAGFNTACLTKLFPTRSHTVAAQGGINAALGNMEEDNWRWHFY 
+ _helix                999999999999                999999              9999999
+ _beta          99999                 99999999            999999
+
+ _aln.pos          130       140       150       160       170       180
+case6_refprot1  DTLIAGAGICDRHAVEFVASNARSCVQWLIDQGVLFDTHIQPN------GEESYHLTREGGH 
+case6_prot1     DTVKGSDWLGDQDAIHYMTEQAPASVVELENYGMPFSRTEDGKIYQRAFGGQSLKFGK-GGQ 
+ _helix         9999999   99999999999   999999999
+ _beta                                             999999         99999999
+
+ _aln.pos        190       200       210       220       230       240
+case6_refprot1  SHRRILHAADATGREVETTLVSKALNHPNIRVLERTNAVDLIVSDKIGLPGTRRVVGAWVWN 
+case6_prot1     A-HRCCCVADRTGHSLLHTLYGRSLRY-DTSYFVEYFALDLLMEN----GECRGVIALCIED 
+ _helix                   99999999999999999               999999
+ _beta            999999                    99999999999              999999999
+
+ _aln.pos      250       260       270       280       290       300       310
+case6_refprot1  RNKETVETCHAKAVVLATGGASKVYQYTTNPDISSGDGIAMAWRAGCRVANLEFNQFHPTAL 
+case6_prot1     ---GSIHRIRAKNTVIATGGYGRTYFSCTSAHTSTGDGTAMVTRAGLPCQDLEFVQFHPTGI 
+ _helix                                            99999999999
+ _beta          9  99999999999999                                    999999
+
+ _aln.pos              320       330       340       350       360       370
+case6_refprot1  YHPQARNFLLTEALRGEGAYLKRPDGTRFMPDFDE-RGELAPRDIVARAIDHEMKRLG---- 
+case6_prot1     YG---AGCLITEGCRGEGGILINSQGERFMERYAPVAKDLASRDVVSRSMTLEIREGRGCGP 
+ _helix                                     999999       9999999999999999
+ _beta                            999999
+
+ _aln.pos            380       390       400       410       420       430
+case6_refprot1  -ADCMFLDISHKPADFIRQHFPMIYEKLLGL-GIDLTQEPVPIVPAAHYTCGGVMVDDHGRT 
+case6_prot1     EKDHVYLQLHHLPPEQLATRLPGISETAMIFAGVDVTKEPIPVLPTVHYNMGGIPTNYKGQV 
+ _helix                     9999999999999999999
+ _beta             99999                               99999999999
+
+ _aln.pos          440       450       460       470       480       490
+case6_refprot1  ---------DVEGLYAIGEVSYTGLHGANLMASNSLLECLVYGWSAAEDITRRMPYAHDIST 
+case6_prot1     LKHVNGQDQIVPGLYACGEAACASVHGANRLGANSLLDLVVFGRACALSIAESCRPGDKVPS 
+ _helix                                         999999999999999999999
+ _beta                      9999999
+
+ _aln.pos        500       510       520       530       540       550
+case6_refprot1  LPPWD-ESRVENPDERVVIQHNWHELRLFMWD------YVGIVRTTKRLERALRRITMLQQE 
+case6_prot1     IKANAGEESVMNLDKLRFADGSIRTSELRLNMQKSMQNHAAVFRVGSVLQEGCEKISQLYGD 
+ _helix                    999999999999999999999            999999999999999999
+ _beta
+
+ _aln.pos      560       570       580       590       600       610       620
+case6_refprot1  IDEYYAHFR------VSNNLLELRNLVQVAELIVRCAMMRKESRGLHFTLDYPELLTHSGPS
+case6_prot1     LKHLKTFDRGMVWNTDLVETLELQNLMLCALQTIYGAEARKESRGAHAREDYKVRVDEYDYS 
+ _helix         9999            999999999999999999999999
+ _beta                                                   999999999
+
+ _aln.pos              
+case6_refprot1  ILSP--- 
+case6_prot1     KPIQGQQ 
+ _helix
+ _beta

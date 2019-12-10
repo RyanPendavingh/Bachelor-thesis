@@ -1,0 +1,11 @@
+ _aln.pos               10        20        30        40        50        60
+case8_refprot1  M-------------SQDFVTLVSKDDKEYEISRSAAMISPTLKAMIEGP--FRES-KGRIEL 
+case8_prot1     MDGEEKTYGGCEGPDAMYVKLISSDGHEFIVKREHALTSGTIKAMLSGPGQFAENETNEVNF 
+ _helix                                          999999999999999
+ _beta                          99999999 99999999                        99999
+
+ _aln.pos             70        80        90       100       110
+case8_refprot1  KQFDSHILEKAVEYLNYNLKYSGVSEDDDEIPEFEIPTEMSLELLLAADYLSI 
+case8_prot1     REIPSHVLSKVCMYFTYKVRYTNS---STEIPEFPIAPEIALELLMAANFLDC 
+ _helix            9999999999999999999999           99999999999999
+ _beta

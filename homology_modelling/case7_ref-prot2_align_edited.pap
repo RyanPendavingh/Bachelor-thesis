@@ -1,0 +1,17 @@
+ _aln.pos           10        20        30        40        50        60
+case7_refprot2  ---YSYIFKYIIIGDMGVGKSCLLHQFTEKKFMADCPHTIGVEFGTRIIEVSGQKIKL 
+case7_prot2     PYNYSYIFKYIIIGDMGVGKSCLLHQFTEKKFMADCPHTIGVEFGTRIIEVSGQKIKL 
+ _helix                               9999999999
+ _beta                   9999999999                            99999999 999999
+
+ _aln.pos             70        80        90       100       110       120
+case7_refprot2  QIWDTAGLERFRAVTRSYYRGAAGALMVYDITRRSTYNHLSSWLTDARNLTNPNTVIILIGN 
+case7_prot2     QIWDTAGQERFRAVTRSYYRGAAGALMVYDITRRSTYNHLSSWLTDARNLTNPNTVIILIGN 
+ _helix                      999999             9999999999999999999
+ _beta          9999999               999999999                       99999999
+
+ _aln.pos          130       140       150       160       170       
+case7_refprot2  KADLEAQRDVTYEEAKQFAEENGLLFLEASAKTGENVEDAFLEAAKKIYQ---
+case7_prot2     KADLEAQRDVTYEEAKQFAEENGLLFLEASAKTGENVEDAFLEAAKKIYQNIQ 
+ _helix                   999999999999             999999999999
+ _beta          9                      9999999

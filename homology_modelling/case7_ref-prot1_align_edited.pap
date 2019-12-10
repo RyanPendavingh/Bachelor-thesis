@@ -1,0 +1,41 @@
+ _aln.pos               10        20        30        40        50        60
+case7_refprot1  MDEEYDVIVLGTGLTECILSGIMSVNGKKVLHMDRNPYYGGESSSITPLEELYKRFQLLEGP 
+case7_prot1     MNEEYDVIVLGTGLTECILSGIMSVNGKKVLHMDRNPYYGGESASITPLEDLYKRFKIPGSP 
+ _helix                     999999999999999                    9999999999
+ _beta                9999                   999999       99999
+
+ _aln.pos             70        80        90       100       110       120
+case7_refprot1  PETMGRGRDWNVDLIPKFLMANGQLVKMLLYTEVTRYLDFKVVEGSFVYKGGKIYKVPSTET 
+case7_prot1     PESMGRGRDWNVDLIPKFLMANGQLVKMLLYTEVTRYLDFKVTEGSFVYKGGKIYKVPSTEA 
+ _helix                               99999999999                          999
+ _beta                    9999                        9999999       99999
+
+ _aln.pos          130       140       150       160       170       180
+case7_refprot1  EALASNLMGMFEKRRFRKFLVFVANFDENDPKTFEGVDPQNTSMRDVYRKFDLGQDVIDFTG 
+case7_prot1     EALASSLMGLFEKRRFRKFLVYVANFDEKDPRTFEGIDPKKTTMRDVYKKFDLGQDVIDFTG 
+ _helix         99999   999999999999999999                999999999  999999999
+ _beta
+
+ _aln.pos        190       200       210       220       230       240
+case7_refprot1  HALALYRTDDYLDQPCLETINRIKLYSESLARYGKSPYLYPLYGLGELPQGFARLSAIYGGT 
+case7_prot1     HALALYRTDDYLDQPCYETINRIKLYSESLARYGKSPYLYPLYGLGELPQGFARLSAIYGGT 
+ _helix         9              999999999999999               999999999999999
+ _beta                                               99999                  99
+
+ _aln.pos      250       260       270       280       290       300       310
+case7_refprot1  YMLNKPVDDIIMENGKVVGVKSEGEVARCKQLICDPSYVPDRVRKAGQVIRIICILSHPIKN 
+case7_prot1     YMLNKPIEEIIVQNGKVIGVKSEGEIARCKQLICDPSYVKDRVEKVGQVIRVICILSHPIKN 
+ _helix
+ _beta          99999999         99999  99999999999      9999999999999999
+
+ _aln.pos              320       330       340       350       360       370
+case7_refprot1  TNDANSCQIIIPQNQVNRKSDIYVCMISYAHNVAAQGKYIAIASTTVETTDPEKEVEPALEL 
+case7_prot1     TNDANSCQIIIPQNQVNRKSDIYVCMISFAHNVAAQGKYIAIVSTTVETKEPEKEIRPALEL 
+ _helix                    999999                                 999999999999
+ _beta                99999         99999999         9999999999
+
+ _aln.pos            380       390       400       410       420       430
+case7_refprot1  LEPIDQKFVAISDLYEPIDDGSESQVFCSCSYDATTHFETTCNDIKDIYKRMAGSAFD---
+case7_prot1     LEPIEQKFVSISDLLVPKDLGTESQIFISRTYDATTHFETTCDDIKNIYKRMTGSEFDFEE 
+ _helix         99                                   9999999999999999
+ _beta              99999999999999      9999999
