@@ -10,49 +10,84 @@ Each case has a folder which includes the starting structures for docking, prote
 The homology modelling folder contains the template structures and the (adapted) structural alignments used for homology modelling.
 
 
-Workflow
+Required software
+- Python2.7
+- Modeller v9.19 (https://salilab.org/modeller/)
+- Naccess v2.1.1
+- ProFit v3.1
+- ProDy module
+- DisVis web server (also available as Python package)
+- HADDOCK v2.4 web server
+
 
 Homology modelling
-- align with modeller
-  python2.7 alignment_modeller.py <main directory> <case number> <protein number> <refprot chain>
-- if needed, correct alignment (i.e. insert in helix or sheet) (refer to tutorials)
-- make models
-  mod9.19 ‘make_model_modeller.py’ <main directory> <case number> <protein number> <refprot chain>
-- select best model based on DOPE score (lowest)
-- realign and remove weird loops not at interface
-- redo ‘make models’ and ‘select best model’
-- loop model case 6
-   mod9.19 make_loopmodel_modeller.py <initial model> <protein name> <first aa of loop1> <last aa of loop1> <first aa of loop2> <last aa of loop2> <start number> <end number>
-- rename chain of best model (link to pbdtools)
-  python2.7 pdb_chain.py -A ‘caseX_protY_struc.pdb’ > ‘caseX_protY_struc.ent’
+- run alignment_modeller.py
+  input: sequence of the protein to be modelled (.fasta), template structure (.pdb or .ent)
+  output: sequence of the protein to be moddeled (.pir), alignment (.ali and .pap)
+- if a deletion is aligned to a helix or beta-sheet, realign manually. see the modeller iterative modelling tutorial for more information.
+- run make_model_modeller.py
+  input: alignment (.ali), names of the protein to be modelled and the template structure (as used in the alignment file), start and end numders of the models to be produced
+  output: homology models ([protein name].B9999[model number].pdb), log file (make_model_modeller.log)
+- select the best model (lowest DOPE score)
+- if there are large unaligned loops, edit the alignment file (.ali) (remove and/or realign the loop)
+  - rerun make_model_modeller.py
+    note: edit the start and end numbers of the models to not overwrite the previous models
+  - select the best model (lowest DOPE score)
+- if there is a large unaligned loop at the interface, run make_loopmodel_modeller.py
+  input: best model (.pdb), protein name, first and last residue number of the loop to be modelled, start and end number of the models to be produced
+  output: loop models ([protein name].BL[model number]0001.pdb), log file (make_loopmodel_modeller.log)
+- select the best model from the loop models and the inital model
 
 
 Docking
-- if needed, remove excessive chains (link to pdbtools)
-  python2.7 pdb_delchain.py -<chain id, chain id, etc> <pdb file> > <new pdb file>
-- run naccess (link to naccess)
-  naccess <pdb file>
-- get accessible residues 
-  python2.7 get_all_accessible.py <main directory> <case number>
-- run DisVis
-  fixed = prot1	 scanning = prot2
+- if present, remove excessive chains (i.e. with https://github.com/haddocking/pdb-tools)
+- run naccess
+  input: protein structure (.pdb or .ent)
+  output: log file (.log), atomic accessibility file (.asa), residue accessibility file (.rsa)
+- run get_all_accessible.py
+  input: residue accessibility files (.rsa)
+  output: accessible residues file (format: residues numbers of the accessible residues seperated by a blank of protein 1 and 2 on line 1 and 2, respectively)
+- run the DisVis web server using the complete scanning mode
+  input: protein structures (.pdb or .ent), accessible residues file , DisVis restraints file (format: see http://www.bonvinlab.org/education/disvis-webserver/)
+  output: ligand interactions file, receptor interactions file and more
+- run get_active_residues.py
+  input: ligand interactions file, receptor interactions file
+  output: active residues file (format: comma seperated residue numbers of the residues with a high interaction fraction of protein 1 and protein 2 on line 1 and 2, respectively)
+- run the three different docking scenario's on the HADDOCK web server:
+  input: protein structures and chains to use
+  - with active residues
+    input: active residues file
+  - with XL restraints
+    input: HADDOCK restraints file (.tbl), enforce centre of mass restraint
+  - both
+    input: active residues file, HADDOCK restraints file (.tbl), enforce centre of mass restraint
+  output: see HADDOCK manual and tutorials
 
-- get active residues from DisVis output		
-  python2.7 get_ active_residues.py <main directory> <case number>  
-- run three docking runs:
-  with active residues, with XL restraints and both	
-  use centre of mass restraints if XL restraints are used
-- download docking results
-
-- assess models part 1
-  python2.7 assess_models_1.py <case> <docking run> <refcomp chain 1> <refcomp chain 2>
-- assess models part 2
-  python2.7 assess_models_2.py <case> <docking run> <refcomp chain 1> <refcomp chain 2> <shortest chain>
-- assess models part 3
-  python2.7 assess_models_3.py <case> <docking run> <refcomp chain 1> <refcomp chain 2>
-- get haddock scores and clustered ranks
-  python2.7 get_score.py <case> <docking run>
-  python2.7 get_clustered_rank.py <case> <docking run>
-- manually make passive residues file and predicted residues file
-- assess quality DisVis
-  python2.7 get_quality_DisVis.py <case> <docking run>
+Assessment
+- run assess_models_1.py
+  input: reference structure (.pdb or .ent), one of the models from HADDOCK (.pdb), chains of the reference structure to be used
+  output: alignment script for ProFit, ProFit log file (.log), alignment files (format: each aligned zone on a new line, [start residue ref]-[end residue ref]:[start residue model]-[end residue model])
+- run assess_models_2.py
+  input: reference structure (.pdb or .ent), model structures to be assessed (.pdb), alignment files
+  output: l-rmsd and i-rmsd scripts for ProFit, file with the fnat for each model, several files with the interface residues of the reference complex and the predicted interface residues of the models 
+  note: written for Windows, but file paths can be edited to be used for Mac
+- run assess_models_3.py
+  input: reference structure (.pdb or .ent), model structures to be assessed (.pdb), l-rmsd and i-rmsd scripts for ProFit, fnat file
+  output: ProFit log files of l-rmsd and i-rmsd calculation (.log), seperate files with the name, l-rmsd, i-rmsd and capri category for each model on a new line, merged file with the name, l-rmsd, i-rmsd, fnat and capri category for each model on a new line (.csv)
+- run get_score.py
+  input: file containing the HADDOCK scores (docking_run/structures/it1/water/file.list)
+  output: file with the name, HADDOCK score and rank of each model on a new line
+- run get_clustered_rank.py
+  input: file containing the clusters sorted on HADDOCK score (docking_run/structures/it1/water/clusters_haddock-sorted.stat) and the files containing the models of each cluster sorted on HADDOCK score (docking_run/structures/it1/water/file.namcluster[number])
+  output: file with the name, the cluster and the rank within the cluster on a new line for each protein (.csv)
+- manually make passive residues file
+  input: ambigous interaction file (docking_run/data/distances/ambig.tbl)
+  format: comma seperated residue numbers of the passive residues of protein 1 and protein 2 on line 1 and 2, respectively
+- manually make predicted residues file
+  input: passive and active residues files
+  format: comma seperated residue numbers of the active residues of protein 1 and protein 2 on line 1 and 2, respectively, and the passive residues of protein 1 and 2 on line 3 and 4, respectively
+- run get_quality_DisVis.py
+  input: predicted residues file
+  output: file containing the amount of true positives, predicted residues and the size of the predicted (=hypothetical) interface
+  
+  
