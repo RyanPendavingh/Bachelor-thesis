@@ -12,12 +12,12 @@ The homology modelling folder contains the template structures and the (adapted)
 
 Required software
 - Python2.7
-- Modeller v9.19 (https://salilab.org/modeller/)
-- Naccess v2.1.1
-- ProFit v3.1
-- ProDy module
-- DisVis web server (also available as Python package)
-- HADDOCK v2.4 web server
+- Modeller v9.19 (salilab.org/modeller)
+- Naccess v2.1.1 (wolf.bms.umist.ac.uk/naccess)
+- ProFit v3.1 (bioinf.org.uk/software/profit)
+- ProDy module v1.10.10 (prody.csb.pitt.edu)
+- DisVis web server (milou.science.uu.nl/cgi/services/DISVIS/disvis, also available as Python package)
+- HADDOCK v2.4 web server (bianca.science.uu.nl//haddock2.4)
 
 
 Homology modelling
