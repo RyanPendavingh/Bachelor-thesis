@@ -14,7 +14,7 @@ MAIN_DIR = sys.argv[1]
 CASE = sys.argv[2]
 PROT1_PATH = MAIN_DIR + '/receptor_interactions.txt'
 PROT2_PATH = MAIN_DIR + '/ligand_interactions.txt'
-OUTPUT_PATH = MAIN_DIR + '/case' + CASE + '_active_residues_correct.txt'
+OUTPUT_PATH = MAIN_DIR + '/case' + CASE + '_active_residues.txt'
 THRESHOLD = 0.5
 
 
