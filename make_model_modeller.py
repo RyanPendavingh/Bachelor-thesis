@@ -12,20 +12,20 @@ except:
     print "Not a valid directory"
 
 
-MAIN_DIR = sys.argv[1]   #C:/Users/Ryan/Documents/Bachelorscriptie2.0/data
+MAIN_DIR = sys.argv[1]
 CASE = sys.argv[2]
 PROT = sys.argv[3]
 REF_PROT_NAME = 'case' + CASE + '_refprot' + PROT
 PROT_NAME = 'case' + CASE + '_prot' + PROT
-ALI_PATH = MAIN_DIR + '/homology_models/case' + CASE + '_ref-prot' + PROT + '_align_edited.ali'
-START = 11
-END = 20
+ALI_PATH = MAIN_DIR + '/homology_models/case' + CASE + '_ref-prot' + PROT + '_align.ali'
+START = 1
+END = 10
 
 def make_automodel():
     env = environ()
     env.io.hetatm = True
     a = automodel(env,
-        alnfile = ALI_PATH,     # PIR format alignment
+        alnfile = ALI_PATH,     #PIR format alignment
         knowns = REF_PROT_NAME,
         sequence = PROT_NAME,
         assess_methods = (assess.DOPE, assess.GA341))
@@ -34,4 +34,4 @@ def make_automodel():
     a.make()
 
 make_automodel()
-#os.rename('Users/ryan/make_model_modeller(new).log', 'Users/ryan/case2A/homology_models/case2A_prot2_make_model.log')
+
