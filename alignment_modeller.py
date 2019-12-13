@@ -12,7 +12,7 @@ except:
     print "Not a valid directory"
 
 
-MAIN_DIR = sys.argv[1]   #C:/Users/Ryan/Documents/Bachelorscriptie2.0/data
+MAIN_DIR = sys.argv[1]
 CASE = sys.argv[2]
 PROT = sys.argv[3]
 REF_STRUC_CHAIN = sys.argv[4]
